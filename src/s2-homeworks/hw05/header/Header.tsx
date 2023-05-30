@@ -11,7 +11,7 @@ type PropsType = {
 export const Header: FC<PropsType> = ({handleOpen}) => {
     // hw5-menu изначально отсутствует, при нажатии на бургер - появляется, при повторном нажатии исчезает
     const location = useLocation()
-    const currentPath = location.pathname
+   const currentPath = location.pathname
 
     const pageName =
         currentPath === PATH.PRE_JUNIOR

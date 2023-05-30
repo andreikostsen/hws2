@@ -1,3 +1,9 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,400&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 .sidebar {
 }
 
@@ -17,6 +23,17 @@
 }
 
 .nav a.active {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    text-decoration-line: underline;
+
+    color: #0059B2;
+
 }
 .close {
 }
