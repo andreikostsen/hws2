@@ -35,7 +35,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         id={'hw5-pre-junior-link'}
                         to={PATH.PRE_JUNIOR}
                         onClick={handleClose}
-                        // className={...} // делает студент
+                        className={currentPath===PATH.PRE_JUNIOR? s.active: ''} // делает студент
                     >
                         Pre-junior
                     </NavLink>
@@ -51,7 +51,7 @@ export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
                         id={'hw5-junior-plus-link'}
                         to={PATH.JUNIOR_PLUS}
                         onClick={handleClose}
-                        // className={...} // делает студент
+                        className={currentPath===PATH.JUNIOR_PLUS? s.active: ''} // делает студент
                     >
                         Junior Plus
                     </NavLink>
