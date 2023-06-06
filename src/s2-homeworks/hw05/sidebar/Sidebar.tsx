@@ -12,7 +12,11 @@ type PropsType = {
 export const Sidebar: FC<PropsType> = ({open, handleClose}) => {
 
     const location = useLocation()
-    const currentPath = location.pathname
+    let currentPath = location.pathname
+    if (currentPath === "/") {
+        currentPath =  PATH.PRE_JUNIOR
+    }
+
 
     const sidebarClass = s.sidebar
         + (open ? ' ' + s.open : '')
