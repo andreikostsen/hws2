@@ -9,6 +9,11 @@
     cursor: pointer;
 }
 
+.button:last-of-type {
+    margin-right: 0px;
+
+}
+
 .disabled {
 
 }
