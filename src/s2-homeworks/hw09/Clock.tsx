@@ -3,35 +3,40 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
 
+
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
     // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
     const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
     const [show, setShow] = useState<boolean>(false)
+    const [buttonStatus, setButtonStatus] = useState<boolean>(false)
 
     const currentDate = date
     const start = () => {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
 
-        let x = setInterval(()=>setDate(new Date()), 1000)
-        setTimerId(x)
+        const timerId = window.setInterval(()=>setDate(new Date()), 1000)
+        setTimerId(timerId)
+        setButtonStatus(true)
     }
 
     const stop = () => {
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
 
+        clearInterval(timerId)
         setTimerId(undefined)
+        setButtonStatus(false)
 
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
+        setShow(true)
 
     }
     const onMouseLeave = () => { // пишут студенты // спрятать дату если мышка не наведена
-
+        setShow(false)
     }
-
 
 
     const timeFormatter = new Intl.DateTimeFormat("ru", {
@@ -66,6 +71,7 @@ function Clock() {
 
     return (
         <div className={s.clock}>
+
             <div
                 id={'hw9-watch'}
                 className={s.watch}
@@ -82,8 +88,9 @@ function Clock() {
                 <div className={s.more}>
                     {show ? (
                         <>
-                            <span id={'hw9-month'}>{stringMonth}</span>,{' '}
-                            <span id={'hw9-date'}>{stringDate}</span>
+                            <span id={'hw9-date'}>{stringDate}</span>,{' '}
+                            <span id={'hw9-month'}>{stringMonth}</span>
+
                         </>
                     ) : (
                         <>
@@ -96,14 +103,14 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={false} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={buttonStatus} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
                 </SuperButton>
                 <SuperButton
                     id={'hw9-button-stop'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер не запущен
+                    disabled={!buttonStatus} // пишут студенты // задизэйблить если таймер не запущен
                     onClick={stop}
                 >
                     stop
