@@ -1,8 +1,16 @@
 .container {
+    padding: 17px 70px;
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
+
 }
 
 .number {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 10px;
+
 }
