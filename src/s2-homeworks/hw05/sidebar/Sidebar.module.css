@@ -11,6 +11,7 @@ body {
 .sidebar.open {
     display: block;
     position: absolute;
+    z-index: 10;
     background: white;
     width: 317px;
     height: 100vh;

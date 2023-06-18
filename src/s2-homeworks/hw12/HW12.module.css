@@ -19,5 +19,14 @@ html {
 }
 
 .select {
+    margin: 5px 0px;
 
+}
+
+.txt {
+    font-size: 14px;
+}
+
+.wrapper {
+    padding: 33px 20px 130px 70px;
 }

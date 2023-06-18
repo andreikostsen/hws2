@@ -24,11 +24,10 @@ const HW12 = () => {
     const themeId = useSelector<AppStoreType>(state => state.theme.themeId)
     const dispatch = useDispatch()
     const change = (id: number) => { // дописать функцию
-
-
         dispatch(changeThemeId(id))
-
     }
+
+    const wrapperClassName = s2.hw + ' ' + s.wrapper
 
     useEffect(() => {
         document.documentElement.dataset.theme = themeId + ''
@@ -40,7 +39,8 @@ const HW12 = () => {
                 Homework #12
             </div>
 
-            <div className={s2.hw}>
+            <div className={wrapperClassName}>
+                <div className={s.txt}>Выберите тему</div>
                 <SuperSelect
                     id={'hw12-select-theme'}
                     className={s.select}
