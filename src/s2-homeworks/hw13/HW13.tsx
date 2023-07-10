@@ -19,6 +19,8 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [disabled, setDisabled] = useState(false)
+
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -30,16 +32,24 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
+        setDisabled(true)
 
         axios
             .post(url, {success: x})
+
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
+                setInfo(res.data.info)
+                setDisabled(false)
                 // дописать
 
             })
             .catch((e) => {
+                setText(e.message)
+                setImage(error500)
+                setDisabled(false)
+               // setInfo(res.data.info)
                 // дописать
 
             })
@@ -55,6 +65,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled = {disabled}
                         // дописать
 
                     >
@@ -64,6 +75,7 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled = {disabled}
                         // дописать
 
                     >
@@ -73,6 +85,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled = {disabled}
+
                         // дописать
 
                     >
@@ -82,6 +96,7 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled = {disabled}
                         // дописать
 
                     >
