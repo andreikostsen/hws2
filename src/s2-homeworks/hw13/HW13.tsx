@@ -41,6 +41,7 @@ const HW13 = () => {
                 setCode('Код 200!')
                 setImage(success200)
                 setInfo(res.data.info)
+                setText(res.data.errorText)
                 setDisabled(false)
                 // дописать
 
