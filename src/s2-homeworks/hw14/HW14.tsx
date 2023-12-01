@@ -33,9 +33,13 @@ const HW14 = () => {
     const sendQuery = (value: string) => {
         setLoading(true)
         getTechs(value)
-            .then((res) => {
+            .then((res:any) => {
                 // делает студент
 
+                setTechs(res.data.techs)
+
+                console.log(res.data.techs)
+                setLoading(false)
                 // сохранить пришедшие данные
 
                 //

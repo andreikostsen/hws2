@@ -43,8 +43,7 @@ const HW13 = () => {
                 setImage(success200)
                 setInfo(res.data.info)
                 setText(res.data.errorText)
-                setDisabled(false)
-                // дописать
+                     // дописать
 
             })
             .catch((e) => {
@@ -66,8 +65,13 @@ const HW13 = () => {
                     setInfo(e.name)
                 }
 
-                setDisabled(false)
+
             })
+            .finally(()=>{
+                setDisabled(false)
+            }
+
+            )
 
 
     }
