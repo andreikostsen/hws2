@@ -7,7 +7,8 @@ import s from './Clock.module.css'
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
     // for autotests // не менять // можно подсунуть в локалСторэдж нужную дату, чтоб увидеть как она отображается
-    const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
+   // const [date, setDate] = useState<Date>(new Date(restoreState('hw9-date', Date.now())))
+    const [date, setDate] = useState<Date>(new Date())
     const [show, setShow] = useState<boolean>(false)
     const [buttonStatus, setButtonStatus] = useState<boolean>(false)
 
@@ -16,9 +17,11 @@ function Clock() {
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
 
-        const timerId = window.setInterval(()=>setDate(new Date()), 1000)
-        setTimerId(timerId)
+        const newTimerId = window.setInterval(()=>setDate(new Date()), 1000)
+        setTimerId(newTimerId)
         setButtonStatus(true)
+
+
     }
 
     const stop = () => {
