@@ -54,9 +54,7 @@ const HW14 = () => {
         // // добавить/заменить значение в квери урла
         // // setSearchParams(
          setSearchParams({find:value})
-         setTimeout(()=>sendQuery(value), 1500)
-         //sendQuery(value)
-        //
+
     }
 
     useEffect(() => {
@@ -75,7 +73,8 @@ const HW14 = () => {
         <div id={'hw14'}>
             <div className={s2.hwTitle}>Homework #14</div>
 
-            <div className={s2.hw}>
+            <div className={`${s2.hw} ${s.container}`}>
+
                 <SuperDebouncedInput
                     id={'hw14-super-debounced-input'}
                     value={find}
@@ -85,6 +84,7 @@ const HW14 = () => {
 
                 <div id={'hw14-loading'} className={s.loading}>
                     {isLoading ? '...ищем' : <br/>}
+
                 </div>
 
                 {mappedTechs}
