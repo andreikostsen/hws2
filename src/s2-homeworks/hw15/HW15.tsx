@@ -50,7 +50,12 @@ const HW15 = () => {
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
-            .then((res) => {
+            .then((res: any) => {
+
+                console.log(res.data.techs)
+
+
+                setTechs(res.data.techs)
                 // делает студент
 
                 // сохранить пришедшие данные
@@ -59,7 +64,7 @@ const HW15 = () => {
             })
     }
 
-    const onChangePagination = (newPage: number, newCount: number) => {
+    const onChangePagination    = (newPage: number, newCount: number) => {
         // делает студент
 
         // setPage(
