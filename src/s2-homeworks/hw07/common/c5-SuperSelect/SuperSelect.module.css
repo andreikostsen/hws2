@@ -1,6 +1,9 @@
 .select {
-    width: 165px;
     font-family: 'Montserrat';
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #ECEBEB;
+    background: #FFF;
 }
 
 .select:focus {
