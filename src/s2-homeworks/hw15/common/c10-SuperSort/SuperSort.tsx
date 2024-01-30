@@ -5,12 +5,15 @@ import noneIconSvg from './none_icon.svg'
 
 
 // добавить в проект иконки и импортировать
-const downIcon = '[\\/]'
-const upIcon = '[/\\]'
-const noneIcon = '[--]'
+// const downIcon = '[\\/]'
+// const upIcon = '[/\\]'
+// const noneIcon = '[--]'
+const downIcon = '[down]'
+const upIcon = '[up]'
+//const noneIcon = '[none]'
 // const downIcon = downIconSvg
 // const upIcon = upIconSvg
-// const noneIcon = noneIconSvg
+const noneIcon = noneIconSvg
 
 export type SuperSortPropsType = {
     id?: string
@@ -48,12 +51,11 @@ const SuperSort: React.FC<SuperSortPropsType> = (
             onClick={onChangeCallback}
         >
             {/*сделать иконку*/}
-            {/*<img*/}
-            {/*    id={id + '-icon-' + sort}*/}
-            {/*    src={icon}*/}
-            {/*/>*/}
+            <img
+                id={id + '-icon-' + sort}
+                src={icon}
+            />
 
-            {icon} {/*а это убрать*/}
         </span>
     )
 }
