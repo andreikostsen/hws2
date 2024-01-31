@@ -77,14 +77,17 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
+
+        console.log(newSort)
         // делает студент
 
-         setSort("up")
+         setSort(newSort)
          setPage(1) // при сортировке сбрасывать на 1 страницу
 
         // sendQuery(
-        // setSearchParams(
+        sendQuery({sort: newSort, page, count})
 
+        setSearchParams({sort: newSort})
         //
     }
 
@@ -126,12 +129,10 @@ const HW15 = () => {
 
                     <div className={s.rowHeader}>
                         <div className={s.techHeader}>
-                            tech
                             <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                         </div>
 
                         <div className={s.developerHeader}>
-                            developer
                             <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                         </div>
                     </div>
@@ -139,7 +140,7 @@ const HW15 = () => {
                     {mappedTechs}
                 </div>
 
-                </div>
+            </div>
 
         </div>
     )
